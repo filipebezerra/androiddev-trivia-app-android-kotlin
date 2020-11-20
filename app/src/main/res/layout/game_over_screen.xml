@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.gameover.GameOverScreen"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="dev.filipebezerra.android.androiddevtrivia.ui.gameover.GameOverScreenViewModel"
+            />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/gameOverConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/game_over_background"
+        >
+
+        <ImageView
+            android:id="@+id/gameOverFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_won_over_height"
+            android:layout_marginTop="@dimen/image_top_margin"
+            android:contentDescription="@string/you_lose_image_content_description"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/try_again"
+            />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/tryAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="@dimen/fab_margin"
+            android:contentDescription="@string/fab_content_description"
+            android:text="@string/try_again"
+            app:icon="@drawable/ic_videogame_asset_24"
+            />
+    </FrameLayout>
+</layout>

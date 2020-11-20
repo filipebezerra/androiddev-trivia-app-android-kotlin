@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.gamewon.GameWonScreen"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="dev.filipebezerra.android.androiddevtrivia.ui.gamewon.GameWonScreenViewModel"
+            />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/gameWonConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/you_win_background"
+        >
+
+        <ImageView
+            android:id="@+id/youWinImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_won_over_height"
+            android:layout_marginTop="@dimen/image_top_margin"
+            android:contentDescription="@string/you_win_image_content_description"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/you_win"
+            />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/nextMatchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="@dimen/fab_margin"
+            android:contentDescription="@string/fab_content_description"
+            android:text="@string/next_match_text"
+            app:icon="@drawable/ic_videogame_asset_24"
+            />
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name" translatable="false">AndroidDev Trivia</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="settings_screen_title">Settings</string>
+
+    <string name="rules_screen_title">Rules</string>
+    <string name="about_screen_title">About</string>
+    <string name="title_screen_title">@string/app_name</string>
+    <string name="fab_content_description">Start game</string>
+    <string name="play_game_text">Play game</string>
+    <string name="rules_text">
+        Select the answer from the options given. Each time you get an answer correct, you advance
+        to the next question.\n\nIf you get the answer wrong, your game ends! You can return to
+        the title screen using up or back from within the game screen, and this will also end
+        your game.
+    </string>
+    <string name="about_text">
+        AndroidDev Trivia will help remind you of important concepts you have learned and will learn
+        in Android development.\n\nConsider modifying the questions and graphics to make this game
+        your own!
+    </string>
+    <string name="submit_button_text">I\'m sure</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">
+        Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="you_win_image_content_description">Congratulations! You just won</string>
+    <string name="next_match_text">Next Match</string>
+    <string name="you_lose_image_content_description">Oh no! You lose</string>
+    <string name="try_again">Try Again?</string>
+</resources>

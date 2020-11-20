@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Global -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Fechar navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="settings_screen_title">Configurações</string>
+    <string name="rules_screen_title">Regras</string>
+    <string name="about_screen_title">Sobre</string>
+    <string name="title_screen_title">@string/app_name</string>
+
+    <!-- Title screen -->
+    <string name="fab_content_description">Iniciar jogo</string>
+    <string name="play_game_text">Jogar agora</string>
+
+    <!-- Rules screen -->
+    <string name="rules_text">
+        Selecione a resposta entre as opções fornecidas. Cada vez que obtém uma resposta correta,
+        você avança para a próxima pergunta. Se você errar a resposta, o jogo termina! Você pode
+        retornar à tela de título usando para cima ou para trás na tela do jogo, e isso também
+        encerrará o jogo.
+    </string>
+    <string name="about_text">
+        O AndroidDev Trivia o ajudará a lembrar de conceitos importantes que você aprendeu e
+        aprenderá no desenvolvimento do Android.\n\nConsidere modificar as perguntas e os gráficos
+        para tornar este jogo seu!
+    </string>
+
+    <!-- Game screen -->
+    <string name="submit_button_text">Tenho certeza</string>
+
+    <!-- Game Won screen -->
+    <string name="you_win_image_content_description">Parabéns! Você ganhou</string>
+    <string name="next_match_text">Próxima partida</string>
+
+    <!-- Game Over screen -->
+    <string name="you_lose_image_content_description">Ahh não! Você perdeu</string>
+    <string name="try_again">Tentar novamente?</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Mensagens</string>
+    <string name="sync_header">Sincronizar</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Sua assinatura</string>
+    <string name="reply_title">Ação de resposta padrão</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sincronizar email periodicamente</string>
+    <string name="attachment_title">Baixar anexos recebidos</string>
+    <string name="attachment_summary_on">
+        Baixar automaticamente os anexos de e-mails recebidos
+    </string>
+    <string name="attachment_summary_off">
+        Baixe apenas anexos quando solicitado manualmente
+    </string>
+</resources>

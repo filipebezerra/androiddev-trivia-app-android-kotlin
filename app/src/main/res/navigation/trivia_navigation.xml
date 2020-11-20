@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/trivia_navigation"
+    app:startDestination="@+id/title_screen"
+    >
+
+    <fragment
+        android:id="@+id/title_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.title.TitleScreen"
+        android:label="@string/title_screen_title"
+        tools:layout="@layout/title_screen"
+        >
+        <action
+            android:id="@+id/action_title_to_game"
+            app:destination="@id/game_screen"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rules_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.rules.RulesScreen"
+        android:label="@string/rules_screen_title"
+        tools:layout="@layout/rules_screen"
+        />
+
+    <fragment
+        android:id="@+id/about_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.about.AboutScreen"
+        android:label="@string/about_screen_title"
+        tools:layout="@layout/about_screen"
+        />
+
+    <fragment
+        android:id="@+id/game_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.game.GameScreen"
+        android:label="@string/title_screen_title"
+        tools:layout="@layout/game_screen"
+        >
+        <action
+            android:id="@+id/action_game_to_game_won"
+            app:destination="@id/game_won_screen"
+            />
+        <action
+            android:id="@+id/action_game_to_game_over"
+            app:destination="@id/game_over_screen"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settings_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.settings.SettingsScreen"
+        android:label="@string/settings_screen_title"
+        />
+
+    <fragment
+        android:id="@+id/game_won_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.gamewon.GameWonScreen"
+        tools:layout="@layout/game_won_screen"
+        />
+
+    <fragment
+        android:id="@+id/game_over_screen"
+        android:name="dev.filipebezerra.android.androiddevtrivia.ui.gameover.GameOverScreen"
+        tools:layout="@layout/game_over_screen"
+        />
+
+</navigation>
