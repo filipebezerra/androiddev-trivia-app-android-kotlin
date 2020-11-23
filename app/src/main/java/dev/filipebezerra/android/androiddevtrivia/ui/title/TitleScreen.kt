@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import dev.filipebezerra.android.androiddevtrivia.databinding.TitleScreenBinding
+import dev.filipebezerra.android.androiddevtrivia.ui.util.event.EventObserver
 import dev.filipebezerra.android.androiddevtrivia.ui.title.TitleScreenDirections.Companion.actionTitleToGame as toGame
 
 class TitleScreen : Fragment() {
@@ -33,8 +34,8 @@ class TitleScreen : Fragment() {
         .root
 
     private fun observeUi() {
-        titleViewModel.navigateToGame.observe(viewLifecycleOwner) {
+        titleViewModel.navigateToGame.observe(viewLifecycleOwner, EventObserver {
             navController.navigate(toGame())
-        }
+        })
     }
 }

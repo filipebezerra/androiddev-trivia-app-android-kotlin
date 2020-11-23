@@ -9,8 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import dev.filipebezerra.android.androiddevtrivia.databinding.GameScreenBinding
-import dev.filipebezerra.android.androiddevtrivia.ui.game.GameScreenDirections.Companion.actionGameToGameWon as toGameWon
+import dev.filipebezerra.android.androiddevtrivia.ui.util.event.EventObserver
 import dev.filipebezerra.android.androiddevtrivia.ui.game.GameScreenDirections.Companion.actionGameToGameOver as toGameOver
+import dev.filipebezerra.android.androiddevtrivia.ui.game.GameScreenDirections.Companion.actionGameToGameWon as toGameWon
 
 class GameScreen : Fragment() {
 
@@ -30,12 +31,12 @@ class GameScreen : Fragment() {
         .root
 
     private fun observeUi() {
-        gameViewModel.navigateToGameWon.observe(viewLifecycleOwner) {
+        gameViewModel.navigateToGameWon.observe(viewLifecycleOwner, EventObserver {
             navController.navigate(toGameWon())
-        }
+        })
 
-        gameViewModel.navigateToGameOver.observe(viewLifecycleOwner) {
+        gameViewModel.navigateToGameOver.observe(viewLifecycleOwner, EventObserver {
             navController.navigate(toGameOver())
-        }
+        })
     }
 }

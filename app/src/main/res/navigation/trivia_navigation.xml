@@ -14,7 +14,7 @@
         >
         <action
             android:id="@+id/action_title_to_game"
-            app:destination="@id/game_screen"
+            app:destination="@+id/game_screen"
             />
     </fragment>
 
@@ -40,11 +40,15 @@
         >
         <action
             android:id="@+id/action_game_to_game_won"
-            app:destination="@id/game_won_screen"
+            app:destination="@+id/game_won_screen"
+            app:popUpTo="@+id/game_screen"
+            app:popUpToInclusive="true"
             />
         <action
             android:id="@+id/action_game_to_game_over"
-            app:destination="@id/game_over_screen"
+            app:destination="@+id/game_over_screen"
+            app:popUpTo="@+id/game_screen"
+            app:popUpToInclusive="true"
             />
     </fragment>
 
@@ -58,12 +62,24 @@
         android:id="@+id/game_won_screen"
         android:name="dev.filipebezerra.android.androiddevtrivia.ui.gamewon.GameWonScreen"
         tools:layout="@layout/game_won_screen"
-        />
+        >
+        <action
+            android:id="@+id/action_game_won_to_game"
+            app:destination="@id/game_screen"
+            app:popUpTo="@id/title_screen"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/game_over_screen"
         android:name="dev.filipebezerra.android.androiddevtrivia.ui.gameover.GameOverScreen"
         tools:layout="@layout/game_over_screen"
-        />
+        >
+        <action
+            android:id="@+id/action_game_over_to_game"
+            app:destination="@id/game_screen"
+            app:popUpTo="@id/title_screen"
+            />
+    </fragment>
 
 </navigation>
