@@ -49,7 +49,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation "androidx.preference:preference-ktx:$preference_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Third-party
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     // Testing
     testImplementation 'junit:junit:4.13.1'

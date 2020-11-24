@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import dev.filipebezerra.android.androiddevtrivia.databinding.MainActivityBinding
+import timber.log.Timber
 
 class TriviaActivity : AppCompatActivity() {
 
@@ -22,6 +23,18 @@ class TriviaActivity : AppCompatActivity() {
             .apply {
                 setupActionBar()
                 setupAppBar()
+            }
+            .also {
+                Timber.tag(TAG)
+                navController.addOnDestinationChangedListener { _, destination, _ ->
+                    destination.id.takeIf { destinationId ->
+                        (destinationId == R.id.settings_screen)
+                            .or(destinationId == R.id.title_screen)
+                    }?.run {
+                        Timber.d("calling invalidateOptionsMenu() ")
+                        invalidateOptionsMenu()
+                    }
+                }
             }
     }
 
@@ -45,10 +58,20 @@ class TriviaActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu) =
         menuInflater.inflate(R.menu.main, menu).let { true }
 
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        menu?.findItem(R.id.settings_screen)?.isVisible =
+            navController.currentDestination?.id != R.id.settings_screen
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem) =
         NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item)
 
     override fun onSupportNavigateUp() =
         navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+
+    companion object {
+        private val TAG = TriviaActivity::class.java.name
+    }
 }
