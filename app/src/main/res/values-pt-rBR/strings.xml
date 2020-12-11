@@ -57,4 +57,6 @@
     <string name="attachment_summary_off">
         Baixe apenas anexos quando solicitado manualmente
     </string>
+    <string name="share_accomplishment">Share accomplishment</string>
+    <string name="share_success_text">I mastered #AndroidDevTrivia with %1$d/%2$d correct questions!</string>
 </resources>

@@ -45,4 +45,6 @@
     <string name="next_match_text">Next Match</string>
     <string name="you_lose_image_content_description">Oh no! You lose</string>
     <string name="try_again">Try Again?</string>
+    <string name="share_accomplishment">Share accomplishment</string>
+    <string name="share_success_text">I mastered #AndroidDevTrivia with %1$d/%2$d correct questions!</string>
 </resources>
