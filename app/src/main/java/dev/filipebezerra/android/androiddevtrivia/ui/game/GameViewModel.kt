@@ -2,7 +2,6 @@ package dev.filipebezerra.android.androiddevtrivia.ui.game
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import dev.filipebezerra.android.androiddevtrivia.R
 import dev.filipebezerra.android.androiddevtrivia.data.Answer
@@ -17,8 +16,8 @@ class GameViewModel : ViewModel() {
     val game: LiveData<Game>
         get() = _game
 
-    private val _navigateToGameWon = MutableLiveData<Event<Any>>()
-    val navigateToGameWon: LiveData<Event<Any>>
+    private val _navigateToGameWon = MutableLiveData<Event<AnsweredQuestions>>()
+    val navigateToGameWon: LiveData<Event<AnsweredQuestions>>
         get() = _navigateToGameWon
 
     private val _navigateToGameOver = MutableLiveData<Event<Any>>()
@@ -27,11 +26,7 @@ class GameViewModel : ViewModel() {
 
     val selectedAnswerIndex = MutableLiveData<Int>()
 
-    val numberOfQuestions = Transformations.map(_game) { game -> game.questions.size }
-
     private val _numberOfCorrectAnswers = MutableLiveData<Int>().apply { value = 0 }
-    val numberOfCorrectAnswers: LiveData<Int>
-        get() = _numberOfCorrectAnswers
 
     init {
         initiateGame()
@@ -160,8 +155,10 @@ class GameViewModel : ViewModel() {
                 val selectedAnswer = question.answers[answerIndex]
 
                 if (correctAnswerText == selectedAnswer.answerText) {
-                    _numberOfCorrectAnswers.value?.run { _numberOfCorrectAnswers.value = inc() }
-                    _navigateToGameWon.postEvent(true)
+                    _numberOfCorrectAnswers.value?.run {
+                        _numberOfCorrectAnswers.value = inc()
+                    }
+                    _navigateToGameWon.postEvent(answeredQuestions())
                 } else {
                     _numberOfCorrectAnswers.value?.run {
                         _numberOfCorrectAnswers.value = if (this > 0) dec() else 0
@@ -171,4 +168,14 @@ class GameViewModel : ViewModel() {
             }
         }
     }
+
+    private fun answeredQuestions(): AnsweredQuestions = AnsweredQuestions(
+        _game.value?.questions?.size?: 0,
+        _numberOfCorrectAnswers.value?: 0,
+    )
 }
+
+data class AnsweredQuestions(
+    val numberOfQuestions: Int,
+    val numberOfCorrectAnswers: Int,
+)

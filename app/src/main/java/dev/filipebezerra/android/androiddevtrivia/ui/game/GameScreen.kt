@@ -33,8 +33,8 @@ class GameScreen : Fragment() {
     private fun observeUi() {
         gameViewModel.navigateToGameWon.observe(viewLifecycleOwner, EventObserver {
             navController.navigate(toGameWon(
-                gameViewModel.numberOfQuestions.value ?: 0,
-                gameViewModel.numberOfCorrectAnswers.value?: 0
+                it.numberOfQuestions,
+                it.numberOfCorrectAnswers,
             ))
         })
 
