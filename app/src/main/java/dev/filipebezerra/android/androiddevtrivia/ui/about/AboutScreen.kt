@@ -18,7 +18,7 @@ class AboutScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = AboutScreenBinding.inflate(inflater)
+    ): View = AboutScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             viewModel = aboutViewModel

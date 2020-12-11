@@ -2,6 +2,7 @@ package dev.filipebezerra.android.androiddevtrivia.ui.game
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import dev.filipebezerra.android.androiddevtrivia.R
 import dev.filipebezerra.android.androiddevtrivia.data.Answer
@@ -25,6 +26,12 @@ class GameViewModel : ViewModel() {
         get() = _navigateToGameOver
 
     val selectedAnswerIndex = MutableLiveData<Int>()
+
+    val numberOfQuestions = Transformations.map(_game) { game -> game.questions.size }
+
+    private val _numberOfCorrectAnswers = MutableLiveData<Int>().apply { value = 0 }
+    val numberOfCorrectAnswers: LiveData<Int>
+        get() = _numberOfCorrectAnswers
 
     init {
         initiateGame()
@@ -153,8 +160,12 @@ class GameViewModel : ViewModel() {
                 val selectedAnswer = question.answers[answerIndex]
 
                 if (correctAnswerText == selectedAnswer.answerText) {
+                    _numberOfCorrectAnswers.value?.run { _numberOfCorrectAnswers.value = inc() }
                     _navigateToGameWon.postEvent(true)
                 } else {
+                    _numberOfCorrectAnswers.value?.run {
+                        _numberOfCorrectAnswers.value = if (this > 0) dec() else 0
+                    }
                     _navigateToGameOver.postEvent(true)
                 }
             }

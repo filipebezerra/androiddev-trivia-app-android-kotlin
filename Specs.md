@@ -7,3 +7,8 @@
 5. Trivia questions must come from Firebase
 6. Launch it
 7. Create a Flutter version
+
+## More
+
+- change up button icon to a close icon when in Game screen
+- when up/back button is pressed when in settings screen, consistently navigate up to previous fragment

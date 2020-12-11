@@ -22,7 +22,7 @@ class GameScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = GameScreenBinding.inflate(inflater)
+    ): View = GameScreenBinding.inflate(inflater)
         .apply {
             viewModel = gameViewModel
             lifecycleOwner = viewLifecycleOwner
@@ -32,7 +32,10 @@ class GameScreen : Fragment() {
 
     private fun observeUi() {
         gameViewModel.navigateToGameWon.observe(viewLifecycleOwner, EventObserver {
-            navController.navigate(toGameWon())
+            navController.navigate(toGameWon(
+                gameViewModel.numberOfQuestions.value ?: 0,
+                gameViewModel.numberOfCorrectAnswers.value?: 0
+            ))
         })
 
         gameViewModel.navigateToGameOver.observe(viewLifecycleOwner, EventObserver {

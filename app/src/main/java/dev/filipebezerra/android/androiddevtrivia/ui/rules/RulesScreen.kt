@@ -18,7 +18,7 @@ class RulesScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = RulesScreenBinding.inflate(inflater)
+    ): View = RulesScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             viewModel = rulesViewModel

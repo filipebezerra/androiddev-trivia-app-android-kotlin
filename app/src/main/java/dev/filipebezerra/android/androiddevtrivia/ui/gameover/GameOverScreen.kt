@@ -24,7 +24,7 @@ class GameOverScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = GameOverScreenBinding.inflate(inflater)
+    ): View = GameOverScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             viewModel = gameWonScreenViewModel

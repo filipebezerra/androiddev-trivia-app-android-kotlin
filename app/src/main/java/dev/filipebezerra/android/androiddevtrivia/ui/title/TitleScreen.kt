@@ -24,7 +24,7 @@ class TitleScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = TitleScreenBinding.inflate(inflater)
+    ): View = TitleScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             viewModel = titleViewModel
