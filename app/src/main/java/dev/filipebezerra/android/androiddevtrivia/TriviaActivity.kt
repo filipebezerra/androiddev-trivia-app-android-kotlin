@@ -5,6 +5,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
+import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED
+import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
@@ -24,9 +26,8 @@ class TriviaActivity : AppCompatActivity() {
                 setupActionBar()
                 setupAppBar()
             }
-            .also {
-                Timber.tag(TAG)
-                navController.addOnDestinationChangedListener { _, destination, _ ->
+            .run {
+                navController.addOnDestinationChangedListener { controller, destination, _ ->
                     destination.id.takeIf { destinationId ->
                         (destinationId == R.id.settings_screen)
                             .or(destinationId == R.id.title_screen)
@@ -34,6 +35,11 @@ class TriviaActivity : AppCompatActivity() {
                         Timber.d("calling invalidateOptionsMenu() ")
                         invalidateOptionsMenu()
                     }
+                    val topLevelDestination =
+                        appBarConfiguration.topLevelDestinations.contains(destination.id)
+                    drawerLayout.setDrawerLockMode(
+                        if (topLevelDestination) LOCK_MODE_UNLOCKED else LOCK_MODE_LOCKED_CLOSED
+                    )
                 }
             }
     }
@@ -70,8 +76,4 @@ class TriviaActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp() =
         navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-
-    companion object {
-        private val TAG = TriviaActivity::class.java.name
-    }
 }
